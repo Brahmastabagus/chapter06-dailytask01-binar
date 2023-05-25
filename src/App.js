@@ -6,6 +6,7 @@ import Filter from './pages/Filter/Index'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
   const dateData = [
@@ -26,16 +27,24 @@ function App() {
     }
   ]
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Filter />,
+    },
+  ]);
+
   return (
-    <div>
-      {/* <h2>Let's get started</h2>
-      <Item title="mitsubisi" price="2000000" date={dateData[0].date}></Item>
-      <Item title="hyundai" price="10" date={dateData[1].date}></Item>
-      <Item title="toyota" price="2" date={dateData[2].date}></Item>
-      <Item title="lancer" price="525252" date={dateData[3].date}></Item>
-      <Item title="honda" price="100" date={dateData[4].date}></Item> */}
-      <Filter />
-    </div>
+    // <div>
+    //   {/* <h2>Let's get started</h2>
+    //   <Item title="mitsubisi" price="2000000" date={dateData[0].date}></Item>
+    //   <Item title="hyundai" price="10" date={dateData[1].date}></Item>
+    //   <Item title="toyota" price="2" date={dateData[2].date}></Item>
+    //   <Item title="lancer" price="525252" date={dateData[3].date}></Item>
+    //   <Item title="honda" price="100" date={dateData[4].date}></Item> */}
+    //   <Filter />
+    // </div>
+    <RouterProvider router={router} />
   );
 }
 

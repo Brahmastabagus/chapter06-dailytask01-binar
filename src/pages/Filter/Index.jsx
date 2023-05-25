@@ -4,6 +4,9 @@ import Card from 'react-bootstrap/Card';
 import Siswa from './Siswa/Index'
 import AddSiswa from './AddSiswa/Index'
 import FilterSiswa from './FilterSiswa/Index'
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../actions/productAction';
+import ProductsReducer from '../../reducers/index'
 
 const dataDummy = [
   {
@@ -57,6 +60,14 @@ const Index = () => {
     setTempData(filterData)
     setTempYear(year === "0")
   };
+
+  const dispatch = useDispatch()
+
+  const { products } = useSelector((state) => state.ProductsReducer)
+
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [dispatch])
   return (
     <>
       <Container fluid={"xl"} style={{ height: "100vh" }} className='d-flex justify-content-center align-items-center'>
